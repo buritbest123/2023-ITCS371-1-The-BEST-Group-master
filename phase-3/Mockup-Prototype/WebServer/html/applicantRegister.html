@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+      defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Register | Job Center</title>
+    <style>
+      img {   /* Adjust the picture of the card's size */
+      height: 400px;
+      object-fit: cover; /* This makes sure that the image will fit the card */
+    }
+    span { 
+      color: red;
+    }
+    </style>
+    <!-- script for profile display -->
+    <script>
+      var loadFile = function(event) {
+              var image = document.getElementById('output');
+              image.src=URL.createObjectURL(event.target.files[0]);
+          };
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="/home"><h1>JobCenter</h1></a>
+    </header>
+    <nav>
+      <a href="/home">Home</a>
+      <a href="/register">Register</a>
+      <a href="/login">Sign in</a>
+    </nav>
+    <main>
+          <form action="/create-applicantaccount" method="POST">
+            <div class="form-group" style="margin-top: 35px;">
+              <center>
+              <p><img id="output" style="width: 200px; height: 200px;"/></p>
+              <input type="file" style="background-color: #FF7F3F;" accept="image/png, image/jpg" name="Picture" onchange="loadFile(event)">
+              </center>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" style="margin-top: 35px;">Email address <span>*</span></label>
+              <input type="email" class="form-control" id="exampleInputEmail1" name="Email" aria-describedby="emailHelp" placeholder="Enter email" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" style="margin-top: 35px;">Password <span>*</span></label>
+              <input type="password" class="form-control" name="Password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1" style="margin-top: 35px;">Citizen ID and Birth Date <span>*</span></label>
+              <div style="display: flex;">
+                <input type="text" class="form-control" maxlength="13" minlength="13" name="CitizenID" style="width: 70%; margin-right: 20px;" aria-describedby="emailHelp" placeholder="Enter Citizen ID" required>
+                <input type="date" class="form-control" name="DOB" style="width: 30%;" aria-describedby="emailHelp" required>
+              </div>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+              <label style="margin-top: 35px;">Phone Number <span>*</span></label>
+              <input type="text" class="form-control" maxlength="10" minlength="8" name="PhoneNo" aria-describedby="emailHelp" placeholder="Enter Phone Number" required>
+            </div>
+            <div class="form-group">
+              <label style="margin-top: 35px;">Name <span>*</span></label>
+              <div style="display: flex;">
+                <input type="text" class="form-control" name="Fname" style="width: 50%; margin-right: 20px;" aria-describedby="emailHelp" placeholder="Enter First Name" required>
+                <input type="text" class="form-control" name="Lname" style="width: 50%;" aria-describedby="emailHelp" placeholder="Enter Last Name" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label style="margin-top: 35px;">Address <span>*</span></label>
+              <div style="display: flex;">
+                <input type="text" class="form-control" name="HouseNumber" style="width: 30%; margin-right: 20px;" aria-describedby="emailHelp" placeholder="Enter House Number" required>
+                <input type="text" class="form-control" name="Street" style="width: 35%; margin-right: 20px;" aria-describedby="emailHelp" placeholder="Enter Street"required>
+                <input type="text" class="form-control" name="Subdistrict" style="width: 35%;" aria-describedby="emailHelp" placeholder="Enter Sub-district" required>
+              </div>
+              <div style="display: flex;">
+                <input type="text" class="form-control" name="District" style="width: 40%; margin-right: 20px;" aria-describedby="emailHelp" placeholder="Enter District" required>
+                <input type="text" class="form-control" name="Province" style="width: 40%; margin-right: 20px;" aria-describedby="emailHelp" placeholder="Enter Province" required>
+                <input type="text" class="form-control" maxlength="5" minlength="5" name="PostalCode" style="width: 20%;" aria-describedby="emailHelp" placeholder="Enter Postal Code" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label style="margin-top: 35px;">Education</label>
+              <textarea class="form-control" name="Education" aria-describedby="emailHelp" placeholder="Enter your Education"></textarea>
+            </div>
+            <div class="form-group">
+              <label style="margin-top: 35px;">Work Experience</label>
+              <textarea class="form-control" name="Experience" aria-describedby="emailHelp" placeholder="Enter your Experience"></textarea>
+            </div>
+            <!-- <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div> -->
+            <button class="btn btn-primary" style="background-color: #FFB200;">Upload ID Card</button>
+            <button class="btn btn-primary" style="background-color: #FFB200; margin-left: 10px;">Upload CV/Resume</button>
+            <button type="submit" class="btn btn-primary" style="background-color: #FF7F3F; margin-left: 10px">Submit</button>
+        </form>
+    </main>
+    <footer class="position-relative" style="margin-top: 50px;">
+      © 2023 Copyright: 𝕋𝕙𝕖 𝔹𝕖𝕤𝕥 𝔾𝕣𝕠𝕦𝕡. All rights reserved.
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

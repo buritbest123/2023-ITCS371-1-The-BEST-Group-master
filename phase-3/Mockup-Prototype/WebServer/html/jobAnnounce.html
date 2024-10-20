@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create a job announcement</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+      defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .testbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: inherit;
+        padding: 20px;
+      }
+      form {
+        width: 100%;
+        padding: 20px;
+        border-radius: 6px;
+        background: #fff;
+        box-shadow: 0 0 8px #669999;
+      }
+      .banner {
+        position: relative;
+        height: 200px;
+        background-image: url("https://img.freepik.com/free-photo/flat-lay-office-stationery-with-copy-space-paper-clips_23-2148524824.jpg?w=1380&t=st=1700041035~exp=1700041635~hmac=a850862241b51c317c73ea60a521ff975e3dbfd1fee0a07b9275770077fe9f25");
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .banner::after {
+        content: "";
+        /* background-color: rgba(0, 0, 0, 0.1); */
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      input,
+      select,
+      textarea {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      input {
+        width: calc(100% - 10px);
+        padding: 5px;
+      }
+      textarea {
+        width: calc(100% - 12px);
+        padding: 5px;
+      }
+      .item:hover p,
+      .item:hover i,
+      .question:hover p,
+      .question label:hover,
+      input:hover::placeholder {
+        color: #292e2e;
+      }
+      .item input:hover,
+      .item select:hover,
+      .item textarea:hover {
+        border: 1px solid transparent;
+        box-shadow: 0 0 3px 0 #111111;
+        color: #0a0a0a;
+      }
+      .item {
+        position: relative;
+        margin: 10px 0;
+      }
+      .item span {
+        color: red;
+      }
+
+      .colums {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      .colums div {
+        width: 48%;
+      }
+      .item i {
+        right: 1%;
+        top: 30px;
+        z-index: 1;
+      }
+      input[type="radio"],
+      input[type="checkbox"] {
+        display: none;
+      }
+      label.radio {
+        position: relative;
+        display: inline-block;
+        margin: 8px 10px 15px 0;
+        cursor: pointer;
+      }
+      .question span {
+        margin-left: 30px;
+      }
+      .question-answer label {
+        display: block;
+      }
+      label.radio:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        border: 2px solid #ccc;
+      }
+      input[type="radio"]:checked + label:before,
+      label.radio:hover:before {
+        border: 2px solid #669999;
+      }
+      label.radio:after {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        width: 8px;
+        height: 4px;
+        border: 3px solid #669999;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg);
+        opacity: 0;
+      }
+      input[type="radio"]:checked + label:after {
+        opacity: 1;
+      }
+      .btn-block {
+        margin-top: 10px;
+        text-align: center;
+      }
+      button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #669999;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #a3c2c2;
+      }
+    </style>
+    <script>
+      function validate() {
+          // Get form inputs
+          var jobTitle = document.forms["announceForm"]["JobTitle"].value;
+          var companyName = document.forms["announceForm"]["CompanyName"].value;
+          var typeOfWork = document.forms["announceForm"]["TypeOfWork"].value;
+          var jobFunction = document.forms["announceForm"]["JobFunction"].value;
+          var position = document.forms["announceForm"]["Position"].value;
+          var location = document.forms["announceForm"]["Location"].value;
+          var minAge = document.forms["announceForm"]["MinAge"].value;
+          var maxAge = document.forms["announceForm"]["MaxAge"].value;
+          var numberOfAcceptance = document.forms["announceForm"]["NumberOfAcceptance"].value;
+          var startingSalary = document.forms["announceForm"]["StartingSalary"].value;
+          var minWorkExperience = document.forms["announceForm"]["MinWorkExperience"].value;
+          var degreeRequirements = document.forms["announceForm"]["DegreeRequirements"].value;
+          var additionalInfo = document.forms["announceForm"]["AdditionalInfo"].value;
+  
+          // Perform validation
+          if (jobTitle === "" || companyName === "" || typeOfWork === "" || jobFunction === "" ||
+              position === "" || location === "" || minAge === "" || maxAge === "" ||
+              numberOfAcceptance === "" || startingSalary === "" || minWorkExperience === "" ||
+              degreeRequirements === "" || additionalInfo === "") {
+              alert("All fields must be filled out");
+              return false;
+          }
+  
+          // Validate age
+          if (parseInt(minAge) <= 0 || parseInt(maxAge) <= 0) {
+              alert("Age must be greater than 0");
+              return false;
+          }
+
+          // Validate age range
+          if (parseInt(minAge) >= parseInt(maxAge)) {
+              alert("Minimum age must be less than maximum age");
+              return false;
+          }
+  
+          // Validate starting salary
+          if (parseInt(startingSalary) <= 0) {
+              alert("Starting salary must be greater than 0");
+              return false;
+          }
+  
+          // Validate work experience
+          if (parseInt(minWorkExperience) < 0) {
+              alert("Minimum work experience cannot be negative");
+              return false;
+          }
+
+          // Validate number of acceptance
+          if (parseInt(numberOfAcceptance) <= 0) {
+              alert("Number of accpetance must be greater than 0");
+              return false;
+          }
+  
+          // If all validation passed, return true for form submission
+          return true;
+      }
+    </script>
+  
+  </head>
+  <body>
+    <header>
+      <a href="/home"><h1>JobCenter</h1></a>
+    </header>
+    <nav>
+      <a href="/home">Home</a>
+      <a href="/job-announce">Create a Job Announcement</a>
+      <a href="/login">Sign out</a>
+    </nav>
+    <div class="testbox" style="margin: 20px;">
+      <form style="padding: 30px;" name = "announceForm" action="/create-post" method="POST" onsubmit = "return(validate());">
+        <div class="banner">
+          <h1 style="color: #ffffff; text-shadow: 2px 2px 5px black;">Create a job announcement</h1>
+        </div>
+        <div class="colums">
+          <div class="item">
+            <label> Job Title <span>*</span></label>
+            <input type="text" name="JobTitle" required />
+          </div>
+          <div class="item">
+            <label> Company Name <span>*</span></label>
+            <input type="text" name="CompanyName" required />
+          </div>
+        </div>
+        <div class="question">
+          <label>Type of Work</label>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="Part-time" id="radio_1" name="TypeOfWork" />
+              <label for="radio_1" class="radio"><span>Part-time</span></label>
+            </div>
+            <div>
+              <input type="radio" value="Full-time" id="radio_2" name="TypeOfWork" />
+              <label for="radio_2" class="radio"><span>Full-time</span></label>
+            </div>
+          </div>
+          <label>Work Function:</label>
+          <select name="JobFunction">
+            <option value=""></option>
+            <option value="Software Development">Software Development</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Customer Support">Customer Support</option>
+            <option value="Finance">Finance</option>
+            <option value="Graphic Design">Graphic Design</option>
+          </select>
+        </div>
+        <div class="colums">
+          <div class="item">
+            <label> Position <span>*</span></label>
+            <input type="text" name="Position" required />
+          </div>
+          <div class="item">
+            <label> Location (Address) <span>*</span></label>
+            <input type="text" name="Location" required />
+          </div>
+          <div class="item">
+            <label> Minimum Age <span>*</span></label>
+            <input type="number" name="MinAge" required />
+          </div>
+          <div class="item">
+            <label> Maximum Age <span>*</span></label>
+            <input type="number" name="MaxAge" required />
+          </div>
+          <div class="item">
+            <label> Number of acceptance <span>*</span></label>
+            <input type="number" name="NumberOfAcceptance" required />
+          </div>
+          <div class="item">
+            <label> Starting salary (THB) <span>*</span></label>
+            <input type="number" name="StartingSalary" required />
+          </div>
+          <div class="item">
+            <label> Minimum work experience (years) <span>*</span></label>
+            <input type="number" name="MinWorkExperience" required />
+          </div>
+          <div class="item">
+            <label> Degree Requirement <span>*</span></label>
+            <input type="text" name="DegreeRequirements" required />
+          </div>
+          <div class="item">
+            <label> Additional Info <span></span></label>
+            <textarea required name="AdditionalInfo"> </textarea>
+          </div>
+        </div>
+
+        <h2>Terms and Conditions</h2>
+        <input type="checkbox" name="checkbox1" />
+        <label
+          >You consent to receive communications from us electronically. We will
+          communicate with you by e-mail or phone. You agree that all
+          agreements, notices, disclosures and other communications that we
+          provide to you electronically satisfy any legal requirement that such
+          communications be in writing.</label
+        >
+        <div class="btn-block">
+          <button type="submit" style="background-color: #FF7F3F;">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

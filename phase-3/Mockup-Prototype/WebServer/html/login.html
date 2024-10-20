@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In | CHANOM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"
+        defer></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <h1>JobCenter</h1>
+    </header>
+    <nav>
+        <a href="/home">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Sign in</a>
+      </nav>
+
+    <div class="container-login">
+        <div class="login-left">    <!-- On the left side, display the login form -->
+            <div class="login-header">
+                <h1>Welcome to Our Website</h1>
+                <p>Please login</p>
+            </div>
+            <form action="/login-submit" method="POST">   <!-- creating a login form -->
+                <div class="login-form-content">
+                    <div class="form-item">
+                        <label for="username">Email or Phone Number</label>
+                        <input type="text" id="username" name="emailPhone" required style="width: 450px; height: 40px; border-radius: 10px;">
+                    </div>
+                    <div class="form-item">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required style="width: 450px; height: 40px; border-radius: 10px;">
+                    </div>
+                    <div id="incorrect-warning" style="color:red; font-size: 22px;"></div>
+                    <button type="submit" class="login-button">Sign In</button>
+                </div>
+                <div class="login-form-footer">
+                    <a href="#">
+                        <img width="30" style="padding-right: 10px;"
+                            src="img/login-element/facebook-logo.webp"
+                            alt=""> Facebook Login
+                    </a>
+                    <a href="#">
+                        <img width="30" style="padding-right: 10px;"
+                            src="img/login-element/google-logo.webp"
+                            alt=""> Google Login
+                    </a>
+                </div>
+            </form>
+        </div>
+        <div class="login-right">   <!-- On the other side, display an image -->
+            <img src="https://cdn-icons-png.flaticon.com/512/384/384581.png">
+        </div>
+    </div>
+
+    <footer style="margin-top: 50px;">
+        © 2023 Copyright: 𝕋𝕙𝕖 𝔹𝕖𝕤𝕥 𝔾𝕣𝕠𝕦𝕡. All rights reserved.
+    </footer>
+
+</body>
+
+</html>

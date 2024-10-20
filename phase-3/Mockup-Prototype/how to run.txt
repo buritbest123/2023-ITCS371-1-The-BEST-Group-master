@@ -1,0 +1,13 @@
+Software Requirements
+1. nodeJS
+2. mySQL database
+    2.1. Run "database.sql" in MySQL workbench
+    2.2. Set up user and priviledges for accessing the database
+        Username: jobcenter, password: jb123
+        Schema priviledges: INSERT, UPDATE, DELETE, SELECT
+
+How to run:
+1. Open 2 terminals (one for WebServer, another for DatabaseServer)
+2. Install node_modules for both server using "npm install" (first-time only)
+3. Start web server, database server using the command "npm start"
+4. Access the web via your browser "localhost:3030"
